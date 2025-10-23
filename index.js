@@ -1,19 +1,22 @@
 // const express = require('express')
 
 import express from 'express'
-import home, { contact } from './pages/home.js'
-
+import home from './pages/home.js'
+import login from './pages/login.js'
+import submit from './pages/submit.js'
 const app = express()
 
-app.get("",(req, resp) => {
+app.get("/", (req, resp) => {
     resp.send(home())
 })
-
-app.get("/contact",(req, resp) => {
-    resp.send(contact())
+app.get("/login", (req, resp) => {
+    resp.send(login())
+})
+app.post("/submit", (req, resp) => {
+    resp.send(submit())
 })
 
-app.listen(3400)
+app.listen(3200)
 
 
 
@@ -28,6 +31,38 @@ app.listen(3400)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import express from 'express'
+// import home, { contact } from './pages/home.js'
+
+// const app = express()
+
+// app.get("",(req, resp) => {
+//     resp.send(home())
+// })
+
+// app.get("/contact",(req, resp) => {
+//     resp.send(contact())
+// })
+
+// app.listen(3400)
 
 
 
