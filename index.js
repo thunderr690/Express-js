@@ -1,50 +1,44 @@
 // const express = require('express')
 
 import express from 'express'
-import home from './pages/home.js'
-import login from './pages/login.js'
-import submit from './pages/submit.js'
+import path from 'path'
 const app = express()
 
-app.get("/", (req, resp) => {
-    resp.send(home())
+app.get('/',(req, resp) => {
+    const abspath = path.resolve('view/home.html')
+    resp.sendFile(abspath)
 })
-app.get("/login", (req, resp) => {
-    resp.send(login())
+
+app.get('/login',(req, resp) => {
+    const abspath = path.resolve('view/login.html')
+    resp.sendFile(abspath)
 })
-app.post("/submit", (req, resp) => {
-    resp.send(submit())
+app.get('/about',(req, resp) => {
+    const abspath = path.resolve('view/about.html')
+    resp.sendFile(abspath)
 })
 
 app.listen(3200)
 
 
 
+// import express from 'express'
+// import home from './pages/home.js'
+// import login from './pages/login.js'
+// import submit from './pages/submit.js'
+// const app = express()
 
+// app.get("/", (req, resp) => {
+//     resp.send(home())
+// })
+// app.get("/login", (req, resp) => {
+//     resp.send(login())
+// })
+// app.post("/submit", (req, resp) => {
+//     resp.send(submit())
+// })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// app.listen(3200)
 
 
 
