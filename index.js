@@ -3,19 +3,27 @@
 import express from 'express'
 import path from 'path'
 const app = express()
+const abspath = path.resolve('view/')
+
+const publicpath = path.resolve('public')
+console.log(publicpath)
+
+app.use(express.static(publicpath))
+console.log(publicpath)
+
 
 app.get('/',(req, resp) => {
-    const abspath = path.resolve('view/home.html')
-    resp.sendFile(abspath)
+    resp.sendFile(abspath+"/home.html")
 })
 
 app.get('/login',(req, resp) => {
-    const abspath = path.resolve('view/login.html')
-    resp.sendFile(abspath)
+    resp.sendFile(abspath+'/login.html')
 })
 app.get('/about',(req, resp) => {
-    const abspath = path.resolve('view/about.html')
-    resp.sendFile(abspath)
+    resp.sendFile(abspath+'/about.html')
+})
+app.use((req, resp) => {
+    resp.status(404). sendFile(abspath+'/404.html')
 })
 
 app.listen(3200)
