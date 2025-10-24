@@ -1,4 +1,4 @@
-h1 {
+/* h1 {
     color: orange;
 }
 
@@ -11,4 +11,8 @@ a{
 }
 a:hover {
     background-color: rgb(56, 56, 146);
+} */
+
+h1{
+    color: orange;
 }
